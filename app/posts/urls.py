@@ -3,5 +3,6 @@ from . import views
 
 app_name = 'posts'
 urlpatterns = [
-    path('postlist/', views.post_list, name='post-list'),
+    path('', views.post_list, name='post-list'),
+    path('postcreate/', views.post_create, name='post-create'),
 ]
