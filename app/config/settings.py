@@ -26,7 +26,7 @@ SECRET_KEY = '7@rml0b(6h^#(s23up-m%sm+74toxg_@kkbs(8it**@r(qd4x6'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+AUTH_USER_MODEL = 'members.User'
 
 # Application definition
 
