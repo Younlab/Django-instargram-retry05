@@ -1,6 +1,7 @@
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 from django.shortcuts import render, redirect
 from .forms import SignInForm
+
 def sign_in(request):
     form = SignInForm()
     if request.method == 'POST':
@@ -15,4 +16,10 @@ def sign_in(request):
     context = {
         'form':form,
     }
+
     return render(request, 'sign/sing_in.html', context)
+
+def sign_out(request):
+    if request.method == 'POST':
+        logout(request)
+        return redirect('index')
