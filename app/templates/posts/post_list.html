@@ -1,14 +1,32 @@
 {% extends 'base.html' %}
 {% block content %}
     {% for post in posts %}
-        <div>
-            {% if post.image %}
-            <img src="{{ post.image.url }}" alt="">
-            {% endif %}
+
+    <div class="uk-card uk-card-default uk-margin-medium-bottom uk-width-xlarge uk-margin">
+        <div class="uk-card-header">
+            <div class="uk-grid-small uk-flex-middle" uk-grid>
+                <div class="uk-width-auto uk-overflow-hidden uk-border-circle uk-position-relative" style="width: 40px; height: 40px;">
+                    {% if post.author.profile_image %}
+                    <img class="uk-position-absolute" style="bottom:0; left:0; height: 100%;" src="{{ post.author.profile_image.url }}">
+                    {% endif %}
+                </div>
+                <div class="uk-width-expand">
+                    <h3 class="uk-card-title uk-margin-remove-bottom">{{ post.author.last_name }} {{ post.author.first_name }}</h3>
+                    <p class="uk-text-meta uk-margin-remove-top"><time datetime="2016-04-01T19:00">April 01, 2016</time></p>
+                </div>
+            </div>
         </div>
-        <div>
+        <div class="uk-card-media-top">
+        {% if post.image %}
+            <img src="{{ post.image.url }}" alt="" width="100%">
+        {% endif %}
+        </div>
+        <div class="uk-card-body">
             <p>{{ post.content }}</p>
         </div>
+        <div class="uk-card-footer">
+            <a href="#" class="uk-button uk-button-text">Read more</a>
+        </div>
+    </div>
     {% endfor %}
-    
 {% endblock %}

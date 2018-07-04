@@ -2,8 +2,16 @@ from django import forms
 from .models import Post
 
 class PostCreateForm(forms.ModelForm):
-    content = forms.TextInput()
-    image = forms.ImageField()
+    content = forms.CharField(
+        widget=forms.Textarea(
+            attrs={
+                'class': 'uk-textarea'
+            }
+        )
+    )
+    image = forms.ImageField(
+        widget=forms.FileInput()
+    )
     class Meta:
         model = Post
         fields = ['content', 'image']

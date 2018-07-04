@@ -13,14 +13,44 @@
     <title>instargram</title>
 </head>
 <body>
-{{ user }}
-<a href="{% url 'members:sign-in' %}">sign in</a>
-<a href="{% url 'posts:post-create' %}">posting</a>
-<form action="{% url 'members:sign-out' %}" method="POST">
-    {% csrf_token %}
-    <button type="submit">sign out</button>
-</form>
-    <section>
+<header>
+    <nav class="uk-navbar-container" uk-navbar>
+    <div class="uk-navbar-left">
+        <ul class="uk-navbar-nav">
+
+        </ul>
+    </div>
+
+    <div class="uk-navbar-right">
+        <ul class="uk-navbar-nav">
+            {% if user.is_authenticated %}
+            <li class="uk-parent">
+                <div class="uk-navbar-item">
+                    <a href="{% url 'posts:post-create' %}" class="uk-button uk-button-default">posting</a>
+                </div>
+            </li>
+            <li class="uk-parent">
+                <form action="{% url 'members:sign-out' %}" method="POST" class="uk-navbar-item">
+                    {% csrf_token %}
+                    <button type="submit" class="uk-button uk-button-default">sign out</button>
+                </form>
+            </li>
+            {% else %}
+            <li class="uk-parent">
+                <div class="uk-navbar-item">
+                    <a href="{% url 'members:sign-in' %}"  class=" uk-button uk-button-default">sign in</a>
+                </div>
+            </li>
+            {% endif %}
+
+
+
+        </ul>
+    </div>
+</nav>
+</header>
+
+    <section class="uk-container uk-container-small uk-margin-medium-top">
         {% block content %}
         {% endblock %}
     </section>

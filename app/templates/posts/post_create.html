@@ -2,7 +2,20 @@
 {% block content %}
     <form action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ form }}
-        <button type="submit">posting</button>
+        <legend class="uk-legend uk-margin-bottom">Posting</legend>
+        <fieldset class="uk-fieldset">
+                <div class="uk-margin" uk-margin>
+                    <div uk-form-custom="target: true">
+                        {{ form.image }}
+                        <input class="uk-input uk-form-width-medium" type="text" placeholder="Select file" disabled>
+                    </div>
+                </div>
+                <div class="uk-margin">
+                {{ form.content }}
+                </div>
+                <button class="uk-button uk-button-default">Submit</button>
+
+        </fieldset>
+
     </form>
 {% endblock %}

@@ -1,8 +1,20 @@
 {% extends 'base.html' %}
 {% block content %}
-    <form action="" method="POST">
-    {% csrf_token %}
-        {{ form }}
-    <button type="submit">sign in</button>
+    <form action="" method="POST" class="uk-card uk-card-default uk-card-body">
+        {% csrf_token %}
+        <div class="uk-margin">
+            <div class="uk-inline">
+                <a class="uk-form-icon" href="#" uk-icon="icon: user"></a>
+                {{ form.username }}
+            </div>
+        </div>
+        <div class="uk-margin">
+            <div class="uk-inline">
+                <a class="uk-form-icon" href="#" uk-icon="icon: lock"></a>
+                {{ form.password }}
+            </div>
+        </div>
+        <button class="uk-button uk-button-default" type="submit"><a href="#" uk-icon="icon: unlock"></a> Sign in</button>
+
     </form>
 {% endblock %}
