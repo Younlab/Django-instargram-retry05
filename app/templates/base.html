@@ -16,6 +16,7 @@
 <header>
     <nav class="uk-navbar-container" uk-navbar>
     <div class="uk-navbar-left">
+        <a class="uk-navbar-item uk-logo" href="{% url 'index' %}"><span style="font-weight: 200; padding-right: 8px;">Development</span> instargram</a>
         <ul class="uk-navbar-nav">
 
         </ul>
@@ -23,6 +24,7 @@
 
     <div class="uk-navbar-right">
         <ul class="uk-navbar-nav">
+
             {% if user.is_authenticated %}
             <li class="uk-parent">
                 <div class="uk-navbar-item">
@@ -39,6 +41,11 @@
             <li class="uk-parent">
                 <div class="uk-navbar-item">
                     <a href="{% url 'members:sign-in' %}"  class=" uk-button uk-button-default">sign in</a>
+                </div>
+            </li>
+            <li class="uk-parent">
+                <div class="uk-navbar-item">
+                    <a href="{% url 'members:sign-up' %}"  class=" uk-button uk-button-default">sign up</a>
                 </div>
             </li>
             {% endif %}
