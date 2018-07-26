@@ -7,7 +7,7 @@ from ..models import Post
 
 User = get_user_model()
 
-class PostList(generics.ListCreateAPIView):
+class PostList(generics.ListAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
 
